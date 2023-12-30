@@ -7,6 +7,8 @@ import (
 )
 
 func SetConsoleTitle(newTitle string) {
+	newTitle = strings.Trim(newTitle, "\"")
+
 	cmd := exec.Command("cmd", "/c", "title", newTitle)
 	cmd.Stdout = os.Stdout
 	cmd.Run()
